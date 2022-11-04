@@ -3,6 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import path from 'path';
 import "./database"
+import colorRouter from "./routes/colores.routes"
 
 const app = express();
 app.set("port", process.env.PORT || 4003)
@@ -19,6 +20,4 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname,'../public')));
 
 // Rutas
-app.get("apipaletacolores", (req, res)=>{
-    res.send('Esto es una prueba de una peticion get')
-})
+app.use("/apipaletacolores", colorRouter)
