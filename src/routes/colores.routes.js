@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { borrarColor, crearColor, listarColores } from "../controllers/colores.controllers";
+import { borrarColor, crearColor, editarColor, listarColores } from "../controllers/colores.controllers";
 import { check } from "express-validator";
 
 const router = Router();
@@ -19,6 +19,7 @@ router
 
 router
   .route("/colores/:id")
-    .delete(borrarColor);
+    .delete(borrarColor)
+    .put(editarColor)
 
 export default router;
