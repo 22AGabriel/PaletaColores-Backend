@@ -1,11 +1,15 @@
 import { Router } from "express";
-import { crearColor, listarColores } from "../controllers/colores.controllers";
+import { borrarColor, crearColor, listarColores } from "../controllers/colores.controllers";
 
 const router = Router();
 
 router
   .route("/colores")
     .get(listarColores)
-    .post(crearColor)
+    .post(crearColor);
+
+router
+  .route("/colores/:id")
+    .delete(borrarColor);
 
 export default router;
