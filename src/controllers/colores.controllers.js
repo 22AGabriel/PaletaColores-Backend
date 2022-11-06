@@ -65,3 +65,15 @@ export const editarColor = async(req, res) => {
     })
   }
 }
+
+export const obtenerColor = async (req, res) => {
+  try {
+    const colorBuscada = await Color.findById(req.params.id);
+    res.status(200).json(colorBuscada);
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      mensaje: "Error al buscar el color",
+    });
+  }
+};
